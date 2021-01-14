@@ -14,7 +14,7 @@ N_NANS = len(VIDEO_AGGS_CENTRE)*4 + len(VIDEO_AGGS_BOUNDS)*3
 
 class Featurize(object):
     '''
-        wussup Class to create feature matrix in preparation for modelling from list of Window objects with raw time series
+        Class to create feature matrix in preparation for modelling from list of Window objects with raw time series
     '''
     def __init__(self, window_lst):
         '''
@@ -90,13 +90,11 @@ class Featurize(object):
 
 if __name__ == "__main__":
     filehandle = open('features/all_data_windowed.obj', 'rb')
-    # filehandle = open('src/features/all_data_windowed.obj', 'rb')
     AARP_data = pickle.load(filehandle)
 
     data_featured = Featurize(AARP_data.windows)
     data_featured.create_features()
 
-    # cleaned_df.to_csv(data_path + 'featurized_data_12022020_3.csv')
 
     print('complete')
 
